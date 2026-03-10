@@ -13,9 +13,10 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret"; // use Render en
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
-mongoose.connect(" mongodb://samuelmugambi262_db_user:SnZIBHdUMsnWDQdB@ac-p0ron3b-shard-00-00.ptzzbj2.mongodb.net:27017,ac-p0ron3b-shard-00-01.ptzzbj2.mongodb.net:27017,ac-p0ron3b-shard-00-02.ptzzbj2.mongodb.net:27017/?ssl=true&replicaSet=atlas-zqqs93-shard-0&authSource=admin&appName=Cluster0", {
-})
+
+const MONGO_URI = "mongodb://samuelmugambi262_db_user:m71zucuGlz9LsH7c@ac-p0ron3b-shard-00-00.ptzzbj2.mongodb.net:27017,ac-p0ron3b-shard-00-01.ptzzbj2.mongodb.net:27017,ac-p0ron3b-shard-00-02.ptzzbj2.mongodb.net:27017/?ssl=true&replicaSet=atlas-zqqs93-shard-0&authSource=admin&appName=Cluster0";
+
+mongoose.connect(MONGO_URI)
 .then(() => console.log("MongoDB connected ✅"))
 .catch(err => console.error("MongoDB connection error ❌:", err));
 
